@@ -28,6 +28,46 @@ chatscanner https://example.com https://another.com --mode basic --output json
 
 This will run the scan in the selected mode and output format.
 
+## Example Output
+
+### Text Output
+```
+ChatScanner Report
+==================
+
+URL: https://www.intercom.com/
+Detections: 3
+  - element:id=intercom-container
+  - script:https://widget.intercom.io/widget/abc123.js
+  - text:chat with us
+
+URL: https://www.drift.com/
+Detections: 2
+  - element:class=drift-widget
+  - script:https://js.driftt.com/include/12345.js
+```
+
+### JSON Output
+```json
+[
+  {
+    "url": "https://www.intercom.com/",
+    "chatbot_indicators": [
+      "element:id=intercom-container",
+      "script:https://widget.intercom.io/widget/abc123.js",
+      "text:chat with us"
+    ]
+  },
+  {
+    "url": "https://www.drift.com/",
+    "chatbot_indicators": [
+      "element:class=drift-widget",
+      "script:https://js.driftt.com/include/12345.js"
+    ]
+  }
+]
+```
+
 ## Development
 
 - Source code is in `src/chatscanner/`
